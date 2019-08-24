@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <h1 class="text-center"><%=userProfile.firstName + " " + userProfile.lastName%></h1>
+            <div class="thumbnail userProfile">
+                <img src="<%=userProfile.avatar%>" alt="User Profile Image">
+                
+                <div class="caption text-center">
+                    <a href="mailto:<%=userProfile.email%>"><%=userProfile.email%></a>
+                    <hr>
+                    <div class="caption bio text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Proin sed urna ac nisl porttitor malesuada. Donec posuere pulvinar ullamcorper.
+                        Nunc pharetra euismod tellus at vulputate. Vivamus rutrum, erat nec tincidunt
+                        vestibulum, risus enim auctor magna, sit amet scelerisque dui turpis tincidunt
+                        ligula. Donec id accumsan elit. Donec at velit ac tortor vulputate dignissim
+                        ut in tortor. Quisque non mattis dolor.
+                    </div>
+                    <hr>
+                    <% function isFollowingUserProfile(user) {  %>
+                        <% return user._id.equals(userProfile._id) %>
+                    <% } %>
+                    <% if (user && !user._id.equals(userProfile._id)) { %>
+                        <% if (!user.following.some(isFollowingUserProfile)) { %>
+                            <a href="/users/<%=userProfile.id%>/follow">
+                                <div class="form-group text-center centered">
+                                    <button class="btn btn-info">Follow <%=userProfile.username%></button>
+                                </div>
+                            </a>
+                        <% } else { %>
+                            <div class="form-group text-center centered">
+                                <button class="btn btn-success disabled" >Following <%=userProfile.username%></button>
+                            </div>
+                        <% } %>
+                    <%  } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <h3 class="text-center"><strong><%=userProfile.username%></strong>'s Campgrounds</h3>
+            <ul class="userCampgrounds">
+            <% campgrounds.forEach((campground)=>{ %>
+                <li class="text-center"><a href="/campgrounds/<%=campground.slug%>"><%= campground.name%></a></li>
+            <% }); %>
+            </ul>
+        </div>
+    </div>
+    
+<% include ../partials/footer %>

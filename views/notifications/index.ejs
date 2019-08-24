@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+
+<h1>Notifications</h1>
+<ul>
+    <% if (allNotifications && allNotifications.length > 0) { %>
+        <% console.log(allNotifications) %>
+        <% allNotifications.forEach(function(notification) { %>
+            <li>
+                <a href="/campgrounds/<%=notification.campgroundSlug%>">
+                    <strong><%=notification.username%></strong> created a new campground. -- <em><%= moment(notification.createdAt).fromNow() %></em> 
+                </a>
+            </li>
+            
+        <% }) %>
+        <form action="/notifications?_method=DELETE" method="POST">
+            <button class="btn btn-primary">Clear Notifications</button>
+        </form>
+    <% } %>
+</ul>
+
+<% include ../partials/footer %>

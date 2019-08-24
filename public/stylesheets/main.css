@@ -1,0 +1,77 @@
+body {
+    background: #94f0f155;
+}
+
+.body {
+    min-height: 100vh;
+    position: relative;
+}
+
+.jumbotron {
+    background: #7dce94aa;
+}
+
+.navbar {
+    background: #25252344;
+}
+
+.thumbnail img {
+    max-width: 150px;
+    height: auto;
+}
+
+.thumbnail .caption {
+    padding: 10px;
+}
+
+.userProfile {
+    background: #7dce94aa;
+}
+.deleteForm {
+    display: inline;
+}
+
+.checked {
+    color: orange;
+}
+
+.userCampgrounds {
+    list-style: none;
+}
+
+.footer {
+    position: relative;
+    /*left: 0;*/
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.color-0 {
+    color: black;
+}
+
+.color-1 {
+    color: white;
+}
+
+.color-2 {
+    color: #94f0f1dd;
+}
+
+.color-3 {
+    color: #7dce94;
+}
+
+/*Google Map*/
+#map {
+    height: 400px;
+    width: 100%;
+}
