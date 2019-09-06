@@ -52,7 +52,7 @@ router.post('/register', (req, res) => {
             return res.render('register', { 'error': err.message });
         }
         passport.authenticate('local')(req, res, () => {
-            req.flash('success', `Successfully Signed Up!\nWelcome to YelpCamp, ${req.body.username}`);
+            req.flash('success', `Successfully Signed Up!\nWelcome to CamperView, ${req.body.username}`);
             res.redirect('/campgrounds');
         });
     });
